@@ -11,24 +11,24 @@ public class audioplayer : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] audioClip;
     int audioSelector=0;
-    // Start is called before the first frame update
+ 
     void Start()
     {
         audioSource.GetComponent<AudioSource>();
     
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //para cerrar la app en la build
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
             
         }
-
+        //al pulsar click izquierdo inicia la reproduccion de audio en caso de que ya haiga una en reproduciendose la para e inica otra
         if(Input.GetKeyDown(KeyCode.Mouse0))
-        {  
+        {  //se usa un random para esocer la cancion
              audioSelector =  Random.Range(0,4);
              audioSource.clip = audioClip[audioSelector];
              audioSource.Play();
@@ -39,11 +39,11 @@ public class audioplayer : MonoBehaviour
                 audioSource.clip = audioClip[audioSelector];
                 audioSource.Play();
                 
-               // audioSource.PlayOneShot(audioClip[1]);
                 Debug.Log("hola ");
             }    
             
         }
+        //click derecho pausa y despause le video
         if( Input.GetKeyDown(KeyCode.Mouse1)) 
         {
             if(  audioSource.isPlaying)
@@ -58,6 +58,7 @@ public class audioplayer : MonoBehaviour
                     }
         
         }
+        //click central/rueda  para de forma completa el audio
         if(Input.GetKeyDown(KeyCode.Mouse2))
         {
            

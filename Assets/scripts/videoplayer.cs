@@ -23,7 +23,7 @@ public class videoplayer : MonoBehaviour
     void Update()
 
     {
-        //funcion que detecta la posicion del raton u mueve el sprite en base a la velocidad de las variavles
+        //funcion que detecta la posicion del raton y mueve el sprite en base a la velocidad de las variavles
         Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = Vector2.SmoothDamp(transform.position, mousePosition, ref currentVelocity, smoothTime, maxMoveSpeed); 
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -33,7 +33,7 @@ public class videoplayer : MonoBehaviour
         }
         RaycastHit hit;
         ////////
-        ///
+        ///al pulsar la tecla si el raycast choca con un collider compara su tag y dependiento de su tag lo inicia(play), lo pausa(pasue) y lo para(stop), aparte usa un random para seleccionar el vidoe al pulsar play
         if(Input.GetKeyDown(KeyCode.Mouse0))
         {      videoSelector =  Random.Range(0,4);
         //play
